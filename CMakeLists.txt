@@ -58,6 +58,7 @@ include_directories("lib/FreeRTOSV7.4.0/FreeRTOS/Source/portable/GCC/ARM_CM4F")
 AUX_SOURCE_DIRECTORY("lib/FreeRTOSV7.4.0/FreeRTOS/Source/portable/GCC/ARM_CM4F" FREERTOS_PORT_SRCS)
 AUX_SOURCE_DIRECTORY("lib/FreeRTOSV7.4.0/FreeRTOS/Source" FREERTOS_SRCS)
 
+SET(FREERTOS ${FREERTOS_SRCS} ${FREERTOS_PORT_SRCS})
 
 # default files
 include_directories("src")
@@ -70,7 +71,7 @@ AUX_SOURCE_DIRECTORY("src/" SRCS)
 
 
 # define target
-add_executable(${TARGET}.elf ${SRCS} ${FREERTOS_SRCS} ${FREERTOS_PORT_SRCS})
+add_executable(${TARGET}.elf ${SRCS} ${FREERTOS})
 target_link_libraries (${TARGET}.elf STM32F4_LIB_CMSIS STM32F4_LIB_PeriphLib)
 
 make_firmware(${TARGET}.elf)
