@@ -4,3 +4,6 @@
 [submodule "lib/STM32F4_LIB_PeriphLib"]
 	path = lib/STM32F4_LIB_PeriphLib
 	url = https://github.com/tbraunP/STM32F4_LIB_PeriphLib.git
+[submodule "lib/FreeRTOSV7.4.2"]
+	path = lib/FreeRTOSV7.4.2
+	url = https://github.com/tbraunP/FreeRTOS.git
