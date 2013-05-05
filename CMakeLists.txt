@@ -45,22 +45,19 @@ SET(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS} -g")
 # add libs in subdirectory
 add_subdirectory (lib/STM32F4_LIB_CMSIS)
 add_subdirectory (lib/STM32F4_LIB_PeriphLib)
+add_subdirectory (lib/FreeRTOSV7.4.2)
 
 # add -I compile headers for LIBS
 include_directories("lib/STM32F4_LIB_CMSIS/inc")
 include_directories("lib/STM32F4_LIB_PeriphLib/inc")
 
 # freertos include files
-include_directories("lib/FreeRTOSV7.4.0/FreeRTOS/Source/include")
-include_directories("lib/FreeRTOSV7.4.0/FreeRTOS/Source/portable/GCC/ARM_CM4F")
+include_directories("lib/FreeRTOSV7.4.2/FreeRTOS/Source/include")
+include_directories("lib/FreeRTOSV7.4.2/FreeRTOS/Source/portable/GCC/ARM_CM4F")
 
-# freeRTOS ressource files
-AUX_SOURCE_DIRECTORY("lib/FreeRTOSV7.4.0/FreeRTOS/Source/portable/GCC/ARM_CM4F" FREERTOS_PORT_SRCS)
-AUX_SOURCE_DIRECTORY("lib/FreeRTOSV7.4.0/FreeRTOS/Source" FREERTOS_SRCS)
-
-SET(FREERTOS ${FREERTOS_SRCS} ${FREERTOS_PORT_SRCS})
 
 # default files
+include_directories("inc")
 include_directories("src")
 
 # add source files from folder
@@ -71,7 +68,7 @@ AUX_SOURCE_DIRECTORY("src/" SRCS)
 
 
 # define target
-add_executable(${TARGET}.elf ${SRCS} ${FREERTOS})
-target_link_libraries (${TARGET}.elf STM32F4_LIB_CMSIS STM32F4_LIB_PeriphLib)
+add_executable(${TARGET}.elf ${SRCS})
+target_link_libraries (${TARGET}.elf STM32F4_LIB_CMSIS STM32F4_LIB_PeriphLib FREERTOS_742)
 
 make_firmware(${TARGET}.elf)
