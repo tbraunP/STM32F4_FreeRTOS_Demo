@@ -69,6 +69,6 @@ AUX_SOURCE_DIRECTORY("src/" SRCS)
 
 # define target
 add_executable(${TARGET}.elf ${SRCS})
-target_link_libraries (${TARGET}.elf STM32F4_LIB_CMSIS STM32F4_LIB_PeriphLib FREERTOS_742)
+target_link_libraries (${TARGET}.elf m c STM32F4_LIB_CMSIS STM32F4_LIB_PeriphLib FREERTOS_742)
 
 make_firmware(${TARGET}.elf)
