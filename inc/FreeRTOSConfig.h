@@ -83,6 +83,7 @@
 #define configIDLE_SHOULD_YIELD		1
 #define configUSE_APPLICATION_TASK_TAG      1
 #define configUSE_MUTEXES               1
+#define configUSE_COUNTING_SEMAPHORES	1
 
 #define configCHECK_FOR_STACK_OVERFLOW  0
 #define configGENERATE_RUN_TIME_STATS               1
@@ -109,7 +110,7 @@ to exclude the API function. */
 /* This is the raw value as per the Cortex-M3 NVIC.  Values can be 255
 (lowest) to 0 (1?) (highest). */
 #define configKERNEL_INTERRUPT_PRIORITY 		255
-#define configMAX_SYSCALL_INTERRUPT_PRIORITY 	191 /* equivalent to 0xb0, or priority 11. */
+#define configMAX_SYSCALL_INTERRUPT_PRIORITY 	1 /* equivalent to 0xb0, or priority 11. */
 
 /* This is the value being used as per the ST library which permits 16
 priority values, 0 to 15.  This must correspond to the
