@@ -73,6 +73,6 @@ SET(SRCS ${SRCS} ${SRCSHW})
 
 # define target
 add_executable(${TARGET}.elf ${SRCS})
-target_link_libraries (${TARGET}.elf m c STM32F4_LIB_CMSIS STM32F4_LIB_PeriphLib FREERTOS)
+target_link_libraries (${TARGET}.elf m c STM32F4_LIB_CMSIS STM32F4_LIB_PeriphLib FREERTOS_752)
 
 make_firmware(${TARGET}.elf)
