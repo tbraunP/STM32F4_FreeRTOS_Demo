@@ -1,5 +1,5 @@
 #include "stm32f4xx.h"
-#include "uart.h"
+#include "hw/uart.h"
 #include "ansi.h"
 #include "ustime.h"
 #include "FreeRTOS.h"
@@ -75,7 +75,7 @@ static void init_task(void *pvParameters)
         .GPIO_Speed = GPIO_Speed_50MHz,
     });
 
-    uart_init(115200);
+    UART_init(115200);
     printf(ANSI_FG_LTRED "STM32F407" ANSI_NORMAL " FreeRTOS Test\n" );
 
     vTaskDelay(100);
